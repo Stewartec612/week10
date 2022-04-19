@@ -5,8 +5,12 @@
     <!--    incredibly funny or incredibly smart?-->
     <!--load each question in the questions array -->
     <ul id="question-list" class="wyr-list">
-      <li v-for="(id, question, answer1, answer2) in questions">
-        {{ id }} {{ question }} {{ answer1 }} {{ answer2 }}
+      <li v-for="(question, answer1, answer2) in questions">
+        {{ id }} {{ question }}
+
+    <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="choiceMade"><label>{{ answer1 }}</label>
+
+    <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="choiceMade"><label>{{ answer2 }}</label>
       </li>
 
 
