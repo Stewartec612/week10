@@ -3,14 +3,10 @@
 
     <h1>Would You Rather...</h1>
 
-    <would-you-rather
-
-      v-for="question in questions"
-      v-bind:question="questions.question"
-      v-bind:answer1="questions.answer1"
-      v-bind:answer2="questions.answer2"
-      v-on:answer-changed="answerChanged"
-    ></would-you-rather>
+    <would-you-rather v-bind:question="questions.question"
+    v-bind:answer1="questions.answer1"
+    v-bind:answer2="questions.answer2"
+    v-on:answer-changed="answerChanged"></would-you-rather>
 
     <p>{{ userSelectionMessage }}</p>
 
@@ -27,34 +23,32 @@ export default {
   },
   data(){
     return {
-      questions:[
+      questions: [
         {
-          id: 0,
-          question: 'would you rather be incredibly funny or incredibly smart?',
+          id: 1,
+          question: 'be incredibly funny or incredibly smart?',
           answer1: 'incredibly funny',
           answer2: 'incredibly smart',
         },
         {
-          id: 1,
-          question: 'Would you rather have super speed or be able to go invisible?',
-          answer1: 'super speed',
-          answer2: 'go invisible'
+          id: 2,
+          question:'have super strength or super speed?',
+          answer1: 'super strength',
+          answer2: 'super speed'
         },
         {
           id: 3,
-          question: 'Would you rather brush your teeth with soap or drink sour milk?',
-          answer1: 'brush teeth with soap',
-          answer2: 'drink sour milk'
+          question: 'live in the past or the future?',
+          answer1: 'the past',
+          answer2: 'the future'
         }
+        ]
+      }
+    },
+  methods:{
 
-      ],
-      userSelectionMessage: ''
-    }
-  },
-  methods: {
-    
-    answerChanged(choice) {
-      this.userSelectionMessage = `Thanks! you chose ${ choice }`
+    answerChanged(choice){
+      this.userSelectionMessage = `You chose: ${choice}`
     }
   }
 }

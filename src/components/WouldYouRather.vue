@@ -1,16 +1,16 @@
 <template>
   <div class="wyr">
 
-<!--    <h2>Please make your choice</h2>-->
-<!--    incredibly funny or incredibly smart?-->
-    <h3>{{ question }}</h3>
+    <h2>Would you rather?:</h2>
+    <!--    incredibly funny or incredibly smart?-->
+    <!--load each question in the questions array -->
+    <ul id="question-list" class="wyr-list">
+      <li v-for="(id, question, answer1, answer2) in questions">
+        {{ id }} {{ question }} {{ answer1 }} {{ answer2 }}
+      </li>
 
-    <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="choice">
-    <label>{{ answer1 }}</label>
 
-    <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="choice">
-    <label>{{ answer2 }}</label>
-
+  </ul>
   </div>
 </template>
 
@@ -21,7 +21,6 @@ export default {
     question: String,
     answer1: String,
     answer2: String,
-
   },
   data() {
     return{
@@ -31,8 +30,7 @@ export default {
   methods: {
     choiceMade() {
       this.$emit('answer-changed', this.choice)
-    },
-    questions(){}
+    }
   }
 }
 </script>
@@ -41,6 +39,9 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
+}
+.wyr{
+  border: 2px black solid;
 }
 
 </style>
